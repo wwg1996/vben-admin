@@ -1,0 +1,50 @@
+{
+  "name": "nest-vben-admin",
+  "version": "0.1.0",
+  "packageManager": "pnpm@8.15.1",
+  "description": "基于 NestJs + Vben Admin 编写的一款前后端分离的权限管理系统",
+  "author": {
+    "name": "kuizuo",
+    "email": "hi@kuizuo.cn",
+    "url": "https://github.com/kuizuo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kuizuo/nest-vben-admin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuizuo/nest-vben-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kuizuo/nest-vben-admin/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.1.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "internal/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "pnpm install",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "bundle": "pnpm -C \"apps/api\" run bundle",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "turbo run stub",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap"
+  },
+  "devDependencies": {
+    "cross-env": "7.0.3",
+    "eslint": "^8.56.0",
+    "rimraf": "^5.0.5",
+    "turbo": "^1.12.2",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0",
+    "@vben/ts-config": "workspace:*"
+  }
+}
